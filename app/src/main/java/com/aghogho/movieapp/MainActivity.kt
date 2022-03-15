@@ -3,11 +3,11 @@ package com.aghogho.movieapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -62,9 +62,26 @@ fun MainContent(
     ) {
         LazyColumn {
             items(items = movieList) { // for each item gotten from movieList, show the item with implicit var it
-                Text(text = it)
+                MovieRow(movie = it)
             }
         }
+    }
+}
+//use this fun to create a card for each movie. Loop through movie items and create a nice
+//card around each movie title. Call this fun within LazyColumn of MainContent and pass Text
+//as the string movie.
+//Add more ui components or widgets later.
+@Composable
+fun MovieRow(movie: String) {
+    Card(
+        modifier = Modifier
+            .padding(4.dp)
+            .fillMaxWidth()
+            .height(130.dp),
+            shape = RoundedCornerShape(corner = CornerSize(16.dp)),
+            elevation = 6.dp
+    ) {
+        Text(text = movie)
     }
 }
 
