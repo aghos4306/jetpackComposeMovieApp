@@ -3,7 +3,11 @@ package com.aghogho.movieapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -42,11 +46,25 @@ fun MyApp(content: @Composable () -> Unit) { //container fun
 }
 
 @Composable
-fun MainContent() {
-    Surface(
-        color = MaterialTheme.colors.background
+fun MainContent(
+    movieList: List<String> = listOf(
+        "Gladiator",
+        "Spartacus",
+        "Borne Supremacy",
+        "Die Another",
+        "Die Hard",
+        "Suits"
+    )
+) {
+    Column(
+        modifier = Modifier
+            .padding(12.dp)
     ) {
-        Text(text = "Hello Movie App" )
+        LazyColumn {
+            items(items = movieList) { // for each item gotten from movieList, show the item with implicit var it
+                Text(text = it)
+            }
+        }
     }
 }
 
