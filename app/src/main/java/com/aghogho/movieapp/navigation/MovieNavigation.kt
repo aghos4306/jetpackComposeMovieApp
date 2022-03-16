@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.aghogho.movieapp.screens.detailscreen.DetailScreen
 import com.aghogho.movieapp.screens.home.HomeScreen
 
 @Composable
@@ -16,6 +17,9 @@ fun MovieNavigation() {
         composable(MovieScreens.HomeScreen.name) {
             //pass composable where this route should lead to. 
             HomeScreen(navController = navController)
+        }
+        composable(MovieScreens.DetailScreen.name) {
+            DetailScreen(navController = navController)
         }
     }
 }

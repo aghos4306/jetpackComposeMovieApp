@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.aghogho.movieapp.MovieRow
+import com.aghogho.movieapp.navigation.MovieScreens
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -53,10 +54,15 @@ fun MainContent(
         LazyColumn {
             items(items = movieList) { // for each item gotten from movieList, show the item with implicit var it
                 MovieRow(movie = it) { movie ->
-                    Log.d("TAG", "MainContent: $movie")
-
+                    //Log.d("TAG", "MainContent: $movie")
+                    navController.navigate(route = MovieScreens.DetailScreen.name)
                 }
             }
         }
     }
 }
+
+//I passed navController parameter in mainContent because I want to be able to use to click on
+//something, a card in this case, and get navigated to somewhere, DetailScreen.
+//Within the MovieRow, instead of just logging movie, use navController to navigate when the
+//row is clicked.
