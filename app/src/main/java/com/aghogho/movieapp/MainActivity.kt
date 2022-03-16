@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.aghogho.movieapp.navigation.MovieNavigation
 import com.aghogho.movieapp.ui.theme.MovieappTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,7 +28,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApp {
-                MainContent()
+                MovieNavigation()
             }
         }
     }
@@ -36,49 +37,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp(content: @Composable () -> Unit) { //container fun
     MovieappTheme {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    backgroundColor = Color.Magenta,
-                    elevation = 5.dp,
-                ) {
-                    Text(text = "Movies")
-                }
-            },
-        ) {
-            content()
-        }
+      content()
     }
 }
 
-@Composable
-fun MainContent(
-    movieList: List<String> = listOf(
-        "Gladiator",
-        "Spartacus",
-        "Borne Supremacy",
-        "Die Another",
-        "Die Hard",
-        "Suits",
-        "Lady in Red",
-        "Dracula",
-        "Mr and Mrs Smith"
-    )
-) {
-    Column(
-        modifier = Modifier
-            .padding(12.dp)
-    ) {
-        LazyColumn {
-            items(items = movieList) { // for each item gotten from movieList, show the item with implicit var it
-                MovieRow(movie = it) { movie ->
-                    Log.d("TAG", "MainContent: $movie")
-
-                }
-            }
-        }
-    }
-}
 
 @Composable
 fun MovieRow(movie: String, onItemClicked: (String) -> Unit = {}) {
@@ -118,7 +80,7 @@ fun MovieRow(movie: String, onItemClicked: (String) -> Unit = {}) {
 @Composable
 fun DefaultPreview() {
     MyApp {
-        MainContent()
+        MovieNavigation()
     }
 }
 
