@@ -6,7 +6,10 @@ import androidx.navigation.NavController
 
 @Composable
 fun DetailScreen(
-    navController: NavController
+    navController: NavController,
+    movieData: String?
 ) {
-    Text(text = "Routed to Detail Screen Successfully")
+    Text(
+        text = movieData.toString()
+    )
 }

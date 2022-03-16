@@ -53,9 +53,9 @@ fun MainContent(
     ) {
         LazyColumn {
             items(items = movieList) { // for each item gotten from movieList, show the item with implicit var it
-                MovieRow(movie = it) { movie ->
+                MovieRow(movie = it) { passMovieContent ->
                     //Log.d("TAG", "MainContent: $movie")
-                    navController.navigate(route = MovieScreens.DetailScreen.name)
+                    navController.navigate(route = MovieScreens.DetailScreen.name+"/$passMovieContent")
                 }
             }
         }
@@ -65,4 +65,5 @@ fun MainContent(
 //I passed navController parameter in mainContent because I want to be able to use to click on
 //something, a card in this case, and get navigated to somewhere, DetailScreen.
 //Within the MovieRow, instead of just logging movie, use navController to navigate when the
-//row is clicked.
+//row is clicked. We need to append the variable to DetailScreen Route in MovieNavigation file.
+
