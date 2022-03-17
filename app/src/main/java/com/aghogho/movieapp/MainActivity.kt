@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyApp(content: @Composable () -> Unit) { //container fun
+fun MyApp(content: @Composable () -> Unit) {
     MovieappTheme {
       content()
     }

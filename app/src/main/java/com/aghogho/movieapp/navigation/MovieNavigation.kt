@@ -64,3 +64,6 @@ fun MovieNavigation() {
 //Add TopNavBar and back button when we navigate to DetailScreen.
 //Notice that when we navigate to DetailScreen, we loose the TopNavBar. We want to add that and
 //also a back btn
+
+//Add Movie Data in data class
+//Represent each movie as an object.
