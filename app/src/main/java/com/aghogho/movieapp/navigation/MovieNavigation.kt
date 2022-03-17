@@ -53,4 +53,14 @@ fun MovieNavigation() {
 //there and display in your application.
 
 //Display the content that is passed along when navigating properly.
-//In DatialScreen file, create a Surface, put the Text into the Surface.
+//In DatialScreen file, create a Surface, Create a Column within Surface. Put the Text into
+// the Column and apply proper modifiers and styles.
+
+//Create Back Button from DetailScreen.
+//We want to be able to go back to the previous screen/composable which is HomeScreen. As we
+//navigate we do have a stack. To go back we need to pop the Screen which is on top of the screen
+//we navigating from. Within the onClick, put there navController.popBackStack.
+
+//Add TopNavBar and back button when we navigate to DetailScreen.
+//Notice that when we navigate to DetailScreen, we loose the TopNavBar. We want to add that and
+//also a back btn
