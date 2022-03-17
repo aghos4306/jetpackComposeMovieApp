@@ -66,4 +66,19 @@ fun MovieNavigation() {
 //also a back btn
 
 //Add Movie Data in data class
-//Represent each movie as an object.
+//Represent each movie as an object. The data is presented locally in the fun getMovies defined
+//in our MovieData data class. This fun getMovies returns a List of movie object. Each movie has
+//an id, title, year, genre properties. etc. This is what I will use to populate my UI.
+//Go to HomeScreen, the fun MainContent, where we have initially defined Movies as List of Strings, and change that to
+//List<Movies> = getMovies()
+//We will have an error because MovieRow is expecting a String, but we have changed the String values
+//to the data class list MovieData. Go to MovieRow composable, and change movie type parameter from
+//String to MovieData object. MovieRow composable is defined in MainActivity.
+//We will have an error within the onClick in MovieRow. This is also because the movie parameter
+//will now be expecting a MovieData but has still a String. Get the id of the movie when it is
+//clicked. movie.id
+//We will still have an error on the Text. This is because the Text now which initially displays a
+//movie string, should now display a movie that is an object. So we can just put there movie.title
+//Basically invoking the properties of our object.
+//Create a package called widgets, where we will add pieces of the UI i.e smaller composable.
+//Refactor MovieRow into widgets package.

@@ -13,8 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.aghogho.movieapp.MovieRow
+import com.aghogho.movieapp.model.MovieData
+import com.aghogho.movieapp.model.getMovies
 import com.aghogho.movieapp.navigation.MovieScreens
+import com.aghogho.movieapp.widgets.MovieRow
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -35,17 +37,7 @@ fun HomeScreen(navController: NavController) {
 @Composable
 fun MainContent(
     navController: NavController,
-    movieList: List<String> = listOf(
-        "Gladiator",
-        "Spartacus",
-        "Borne Supremacy",
-        "Die Another",
-        "Die Hard",
-        "Suits",
-        "Lady in Red",
-        "Dracula",
-        "Mr and Mrs Smith"
-    )
+    movieList: List<MovieData> = getMovies()
 ) {
     Column(
         modifier = Modifier
