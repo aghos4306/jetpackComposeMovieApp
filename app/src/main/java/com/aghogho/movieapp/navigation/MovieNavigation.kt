@@ -42,8 +42,13 @@ fun MovieNavigation() {
 //Fix too many argument for DetailScreen, by passing a var of type String as parameter, because
 //DetailScreen will now be expecting a String parameter passed into it.
 //Now go to DetailScreen and pass into the Text the data that should be captured, the data is now
-//stored in movieData.
+//stored in movieData var.
 //Now go to HomeScreen where and also pass in the data there because this is the screen we are
-//navigating from to DetailScreen. In the MovieRow, within the lambda, define a var, call it
+//navigating from to DetailScreen. In the MovieRow , within the lambda, define a var, call it
 // passMovieContent. And concatenate this var to the route in the navController.navigate.
 //This is basically passing the argument (passMovieContent) into the route.
+//The idea is to be able to pass loads of info from an object. Imagine if the movie is an object
+//from some API, we can pass the id of a specific object, once the id of movie clicked matches an
+//id from the data source, get that particular movie and get as much key value pair you want from
+//there and display in your application.
+
