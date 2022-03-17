@@ -52,3 +52,5 @@ fun MovieNavigation() {
 //id from the data source, get that particular movie and get as much key value pair you want from
 //there and display in your application.
 
+//Display the content that is passed along when navigating properly.
+//In DatialScreen file, create a Surface, put the Text into the Surface.
