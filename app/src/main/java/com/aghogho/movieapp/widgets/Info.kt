@@ -90,3 +90,16 @@ package com.aghogho.movieapp.widgets
 //depending on the size of the contents that should be on it. Comment out the height in the Card.
 //In the AnimatedVisibility, within the Column, use the Text AnnotatedString. Pass buildAnnotatedString
 //lambda. This allows us to be able to change individual strings that we want to show.
+
+//This is very important. How do you get the information about the movie once a movie is clicked
+//to redirect you to detail screen. At the moment we are only getting the id of the particular movie
+//in DetailScreen once a movie is clicked from the HomeScreen.
+//Filter through the List of movies until you find an Id that contain the id of the movie that we
+//clicked. movieData here is a String. movieData could as well be the id i.e movieId.
+//Create a variable newMovieList inside the lambda of DetailScreen, set the variable to getMovies() and
+//pass in the filter method onto it. Filter return a list containing those Type. With this we
+//should have at least one movie that will match the id we are passing.
+//Now in the Text where I originally passed movieData.toString to get movie id, change that to
+// newMovieList, because I do not just want to display just movie id. I used the movieData.id
+// to get the id of that specific movie to get its content. Get the first index. It makes sense
+//because we should get one item that is found during the filter process.

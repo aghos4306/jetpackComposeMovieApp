@@ -88,7 +88,7 @@ fun MovieRow(
 
                 //Controls Chevron toggling
                 AnimatedVisibility(visible = toggleChevronArrow) {
-                    Column() {
+                    Column {
                         //Text(text = "Hello Chevron")
                         Text( buildAnnotatedString {
                             withStyle(style = SpanStyle(color = Color.DarkGray,
@@ -100,7 +100,21 @@ fun MovieRow(
                             fontWeight = FontWeight.Light)) {
                                 append(movie.plot)
                             }
-                        } )
+                        }, modifier = Modifier.padding(6.dp) )
+
+                        Divider(modifier = Modifier.padding(3.dp))
+                        Text(
+                            text = "Director: ${movie.director}",
+                            style = MaterialTheme.typography.caption
+                        )
+                        Text(
+                            text = "Actors: ${movie.actors}",
+                            style = MaterialTheme.typography.caption
+                        )
+                        Text(
+                            text = "Ratings: ${movie.rating}",
+                            style = MaterialTheme.typography.caption
+                        )
                     }
                 }
 

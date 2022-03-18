@@ -11,12 +11,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.aghogho.movieapp.model.getMovies
 
 @Composable
 fun DetailScreen(
     navController: NavController,
     movieData: String?
 ) {
+    val newMovieList = getMovies().filter { movie ->
+        movie.id == movieData
+    }
     Scaffold(
         topBar = {
             TopAppBar(
@@ -50,7 +54,8 @@ fun DetailScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = movieData.toString(),
+                    //text = movieData.toString(),
+                    text = newMovieList[0].title,
                     style = MaterialTheme.typography.h5
                 )
 
