@@ -1,7 +1,10 @@
 package com.aghogho.movieapp.screens.detailscreen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -11,7 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import coil.compose.rememberImagePainter
+import com.aghogho.movieapp.model.MovieData
 import com.aghogho.movieapp.model.getMovies
+import com.aghogho.movieapp.widgets.MovieRow
 
 @Composable
 fun DetailScreen(
@@ -51,13 +57,20 @@ fun DetailScreen(
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.Top
             ) {
-                Text(
-                    //text = movieData.toString(),
-                    text = newMovieList[0].title,
-                    style = MaterialTheme.typography.h5
-                )
+                MovieRow(movie = newMovieList.first())
+//                Text(
+//                    //text = movieData.toString(),
+//                    text = newMovieList[0].title,
+//                    style = MaterialTheme.typography.h5
+//                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+                Divider()
+                Text(text = "Movie Images")
+
+                HorizontalScrollableImageView(newMovieList)
 
                 Spacer(modifier = Modifier.height(20.dp))
                 Button(onClick = {
@@ -65,6 +78,25 @@ fun DetailScreen(
                 }) {
                     Text(text = "Go Back")
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun HorizontalScrollableImageView(newMovieList: List<MovieData>) {
+    LazyRow {
+        items(newMovieList[0].images) { image ->
+            Card(
+                modifier = Modifier
+                    .padding(12.dp)
+                    .size(240.dp),
+                elevation = 5.dp
+            ) {
+                Image(
+                    painter = rememberImagePainter(data = image),
+                    contentDescription = "Movie Poster Images"
+                )
             }
         }
     }

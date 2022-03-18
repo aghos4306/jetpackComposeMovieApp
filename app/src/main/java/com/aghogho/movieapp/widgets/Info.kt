@@ -103,3 +103,10 @@ package com.aghogho.movieapp.widgets
 // newMovieList, because I do not just want to display just movie id. I used the movieData.id
 // to get the id of that specific movie to get its content. Get the first index. It makes sense
 //because we should get one item that is found during the filter process.
+
+//Since we have the MovieRow Widget creaeted that handles MovieCard, we can just call that here
+//in DetailScreen and pass in movie = newMovieList.first //same as newMovieList[0]. Basically all
+//I have to do is call MovieRow in DetailScreen and pass in the data which is the fileterd
+//newMovieList.
+
+//Now Create Horizontal Scrollable containing all that images pertaining to specific movie.
