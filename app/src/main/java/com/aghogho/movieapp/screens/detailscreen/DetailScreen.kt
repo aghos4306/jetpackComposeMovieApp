@@ -73,10 +73,13 @@ fun DetailScreen(
                 HorizontalScrollableImageView(newMovieList)
 
                 Spacer(modifier = Modifier.height(20.dp))
+
                 Button(onClick = {
                     navController.popBackStack()
                 }) {
-                    Text(text = "Go Back")
+                    Text(
+                        text = "Go Back",
+                    )
                 }
             }
         }
